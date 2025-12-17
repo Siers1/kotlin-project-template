@@ -1,6 +1,5 @@
 package com.siersi.backendkotlin.controller
 
-import com.mybatisflex.core.query.QueryWrapper
 import com.siersi.backendkotlin.entity.User
 import com.siersi.backendkotlin.mapper.UserMapper
 import com.siersi.backendkotlin.utils.Result
