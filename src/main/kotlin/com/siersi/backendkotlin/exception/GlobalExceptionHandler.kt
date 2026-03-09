@@ -2,7 +2,6 @@ package com.siersi.backendkotlin.exception
 
 import com.siersi.backendkotlin.utils.Result
 import org.springframework.http.converter.HttpMessageNotReadableException
-import org.springframework.validation.ObjectError
 import org.springframework.web.HttpRequestMethodNotSupportedException
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
