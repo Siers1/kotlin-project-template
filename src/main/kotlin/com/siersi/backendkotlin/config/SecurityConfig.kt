@@ -38,10 +38,10 @@ class SecurityConfig(
         return http.build()
     }
 
-    @Bean
-    fun authenticationManager(authenticationConfiguration: AuthenticationConfiguration): AuthenticationManager {
-        return authenticationConfiguration.authenticationManager
-    }
+//    @Bean
+//    fun authenticationManager(authenticationConfiguration: AuthenticationConfiguration): AuthenticationManager {
+//        return authenticationConfiguration.authenticationManager
+//    }
 
     @Bean
     fun passwordEncoder(): PasswordEncoder {
