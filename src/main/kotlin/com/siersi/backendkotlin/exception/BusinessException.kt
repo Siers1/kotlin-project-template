@@ -10,7 +10,7 @@ package com.siersi.backendkotlin.exception
 //    constructor(message: String): this(500, message)
 //}
 
-class BusinessException(
+open class BusinessException(
     message: String,
     val code: Int = 500
 ): RuntimeException(message)
