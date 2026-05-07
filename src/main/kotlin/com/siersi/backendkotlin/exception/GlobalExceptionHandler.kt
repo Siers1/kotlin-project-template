@@ -23,10 +23,8 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handleMethodArgumentNotValidException(e: MethodArgumentNotValidException): Result<Unit> {
-        val errorMessage = e.bindingResult.allErrors.stream()
-            .findFirst()
-            .map<String> { it.defaultMessage }
-            .orElse("参数验证失败")
+        val errorMessage = e.bindingResult.allErrors
+            .joinToString("; ") { it.defaultMessage ?: "参数验证错误" }
         return Result.failure(errorMessage, 400)
     }
 
