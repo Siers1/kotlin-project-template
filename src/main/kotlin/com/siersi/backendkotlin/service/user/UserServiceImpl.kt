@@ -5,9 +5,10 @@ import com.mybatisflex.spring.service.impl.ServiceImpl
 import com.siersi.backendkotlin.entity.User
 import com.siersi.backendkotlin.exception.BusinessException
 import com.siersi.backendkotlin.mapper.UserMapper
-import com.siersi.backendkotlin.request.auth.AuthRequest
+import com.siersi.backendkotlin.request.auth.RegisterRequest
 import org.springframework.stereotype.Service
 import com.siersi.backendkotlin.entity.table.UserTableDef.USER;
+import com.siersi.backendkotlin.request.auth.LoginRequest
 import com.siersi.backendkotlin.utils.JwtUtil
 import org.springframework.security.crypto.password.PasswordEncoder
 
@@ -18,28 +19,28 @@ class UserServiceImpl(
     private val passwordEncoder: PasswordEncoder,
 ): ServiceImpl<UserMapper, User>(), UserService {
 
-    override fun register(authRequest: AuthRequest): Unit {
+    override fun register(registerRequest: RegisterRequest): Unit {
         val queryWrapper = QueryWrapper.create()
             .select()
-            .eq(User::account, authRequest.account)
+            .eq(User::account, registerRequest.account)
 
         userMapper.selectOneByQuery(queryWrapper)?.let {
             throw BusinessException("用户已存在")
         }
 
         User(
-            account = authRequest.account,
-            password = passwordEncoder.encode(authRequest.password)
+            account = registerRequest.account,
+            password = passwordEncoder.encode(registerRequest.password)
         ).also { userMapper.insertSelective(it) }
     }
 
-    override fun login(authRequest: AuthRequest): String {
+    override fun login(loginRequest: LoginRequest): String {
         val queryWrapper = QueryWrapper.create()
-            .where(USER.ACCOUNT.eq(authRequest.account))
+            .where(USER.ACCOUNT.eq(loginRequest.account))
 
         val user: User = userMapper.selectOneByQuery(queryWrapper) ?: throw BusinessException("账号或密码错误")
 
-        if (!passwordEncoder.matches(authRequest.password, user.password)) throw BusinessException("账号或密码错误")
+        if (!passwordEncoder.matches(loginRequest.password, user.password)) throw BusinessException("账号或密码错误")
 
         return jwtUtil.generateToken(user.id)
     }
