@@ -7,7 +7,7 @@ import com.siersi.backendkotlin.exception.BusinessException
 import com.siersi.backendkotlin.mapper.UserMapper
 import com.siersi.backendkotlin.request.auth.RegisterRequest
 import org.springframework.stereotype.Service
-import com.siersi.backendkotlin.entity.table.UserTableDef.USER;
+import com.siersi.backendkotlin.entity.table.UserTableDef.USER
 import com.siersi.backendkotlin.request.auth.LoginRequest
 import com.siersi.backendkotlin.utils.JwtUtil
 import org.springframework.security.crypto.password.PasswordEncoder

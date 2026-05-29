@@ -24,16 +24,20 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    runtimeOnly("com.mysql:mysql-connector-j")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.springframework.security:spring-security-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation("com.mybatis-flex:mybatis-flex-spring-boot3-starter:1.11.1")
-    implementation("com.zaxxer:HikariCP")
+
+    implementation("com.mybatis-flex:mybatis-flex-spring-boot3-starter:1.11.7")
     kapt("com.mybatis-flex:mybatis-flex-processor:1.5.6")
+    implementation("org.jspecify:jspecify:1.0.0")
+    runtimeOnly("com.mysql:mysql-connector-j")
+    implementation("com.zaxxer:HikariCP")
+
     implementation("com.auth0:java-jwt:4.4.0")
     implementation("cn.hutool:hutool-all:5.8.40")
 }
