@@ -1,6 +1,7 @@
 package com.siersi.backendkotlin.exception
 
 import com.siersi.backendkotlin.utils.Result
+import org.slf4j.LoggerFactory
 import org.springframework.http.converter.HttpMessageNotReadableException
 import org.springframework.web.HttpRequestMethodNotSupportedException
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.NoHandlerFoundException
 
 @RestControllerAdvice
 class GlobalExceptionHandler {
+
+    private val logger = LoggerFactory.getLogger("GlobalExceptionHandler")
 
     @ExceptionHandler(BusinessException::class)
     fun handleBusinessException(e: BusinessException): Result<Unit> {
@@ -40,6 +43,7 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception::class)
     fun handleRuntimeException(e: Exception): Result<Unit> {
-        return Result.failure((e.javaClass.name + ": " + e.message), 500)
+        logger.warn("{}: {}", e.javaClass.name, e.message)
+        return Result.failure(("未知错误"), 500)
     }
 }
