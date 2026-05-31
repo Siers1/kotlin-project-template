@@ -1,6 +1,6 @@
 # 这是一个为自己打造的一个kotlin项目模板
 
-基于Kotlin 2.1.21 + SpringBoot 3.5.7
+基于Kotlin 2.3.21 + SpringBoot 3.5.7
 
 
 
@@ -10,7 +10,7 @@ SpringBoot + SpringSecurity  *version "3.5.7"*
 
 Mysql  *version 8.+*
 
-MybatisFlex  *version 1.11.1*
+MybatisFlex  *version 1.11.7*
 
 auth0-jwt  *version 4.4.0*
 
