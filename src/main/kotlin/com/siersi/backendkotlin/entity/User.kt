@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 data class User(
 
     @Id(keyType = KeyType.Auto)
-    val id: Long = 0,
+    val id: Long? = null,
 
     val account: String,
     val password: String,
