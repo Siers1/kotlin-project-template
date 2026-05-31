@@ -40,6 +40,6 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception::class)
     fun handleRuntimeException(e: Exception): Result<Unit> {
-        return Result.failure(e.message ?: "未知错误", 500)
+        return Result.failure((e.javaClass.name + ": " + e.message), 500)
     }
 }
