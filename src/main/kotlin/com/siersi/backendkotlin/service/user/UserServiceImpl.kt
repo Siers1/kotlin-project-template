@@ -42,6 +42,6 @@ class UserServiceImpl(
 
         if (!passwordEncoder.matches(loginRequest.password, user.password)) throw BusinessException("账号或密码错误")
 
-        return jwtUtil.generateToken(user.id!!)
+        return jwtUtil.generateToken(user.id ?: throw BusinessException("用户id不存在"))
     }
 }
