@@ -39,7 +39,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP")
 
     implementation("com.auth0:java-jwt:4.4.0")
-    implementation("cn.hutool:hutool-all:5.8.40")
+    implementation("cn.hutool:hutool-core:5.8.40")
 }
 
 kotlin {
