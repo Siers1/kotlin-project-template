@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### SpringBoot ###
+application-dev.yml
