@@ -9,7 +9,7 @@ import com.auth0.jwt.interfaces.JWTVerifier
 import com.siersi.backendkotlin.exception.BusinessException
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import java.util.*
+import java.util.Date
 
 @Component
 class JwtUtil {

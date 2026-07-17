@@ -21,8 +21,7 @@ class UserServiceImpl(
 
     override fun register(registerRequest: RegisterRequest): Unit {
         val queryWrapper = QueryWrapper.create()
-            .select()
-            .eq(User::account, registerRequest.account)
+            .where(USER.ACCOUNT.eq(registerRequest.account))
 
         userMapper.selectOneByQuery(queryWrapper)?.let {
             throw BusinessException("用户已存在")
