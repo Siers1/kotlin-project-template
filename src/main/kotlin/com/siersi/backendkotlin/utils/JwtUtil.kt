@@ -13,11 +13,14 @@ import java.util.Date
 
 @Component
 class JwtUtil {
-    @Value("\${jwt.secret}")
+    @Value($$"${jwt.secret}")
     private var secret: String = ""
 
-    @Value("\${jwt.expiration}")
+    @Value($$"${jwt.expiration}")
     private var expiration: Int = 0
+
+    private val algorithm: Algorithm = Algorithm.HMAC256(secret)
+    private val verifier: JWTVerifier = JWT.require(algorithm).build()
 
     fun generateToken(id: Long): String {
         return JWT.create()
@@ -28,8 +31,6 @@ class JwtUtil {
 
     fun verifyToken(token: String): Boolean {
         try {
-            val algorithm: Algorithm = Algorithm.HMAC256(secret)
-            val verifier: JWTVerifier = JWT.require(algorithm).build()
             verifier.verify(token)
             return true
         } catch (_: JWTVerificationException) {

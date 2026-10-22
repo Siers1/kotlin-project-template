@@ -32,8 +32,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
-    implementation("com.mybatis-flex:mybatis-flex-spring-boot3-starter:1.11.7")
-    kapt("com.mybatis-flex:mybatis-flex-processor:1.11.7")
+    implementation("com.mybatis-flex:mybatis-flex-spring-boot3-starter:1.11.8")
+    kapt("com.mybatis-flex:mybatis-flex-processor:1.11.8")
     implementation("org.jspecify:jspecify:1.0.0")
     runtimeOnly("com.mysql:mysql-connector-j")
 
